@@ -22,7 +22,7 @@ function Upload() {
         formData.append("location", location);
 
         try {
-            const res = await axios.post("/upload", formData, {
+            const res = await axios.post("api/v1/images", formData, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             });
             setOutput(res.data);

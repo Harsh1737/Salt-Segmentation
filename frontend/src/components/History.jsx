@@ -17,10 +17,10 @@ function History() {
         setLoading(true);
 
         try {
-            const res = await axios.get(`/history/${location}`, {
+            const res = await axios.get(`api/v1/images/${location}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             });
-            setHistory(res.data);
+            setHistory(res.data.message.images);           
         } catch (err) {
             setError("Failed to fetch history: " + err.response?.data?.error);
         } finally {
